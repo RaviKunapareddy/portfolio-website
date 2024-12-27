@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raviteja Kunapareddy | Portfolio</title>
     <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            60% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
         body {
             font-family: 'Lato', sans-serif;
             margin: 0;
@@ -23,20 +34,24 @@
             color: #fff;
             background: rgba(0, 0, 0, 0.7);
             background-blend-mode: overlay;
+            animation: fadeIn 1.5s ease-in-out;
         }
         header h1 {
             font-size: 3.5em;
             margin: 0;
             text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            animation: bounceIn 1s ease-in-out;
         }
         header p {
             font-size: 1.5em;
             margin-top: 0.5em;
             font-weight: 300;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
         }
         .header-buttons {
             margin-top: 2em;
+            animation: fadeIn 2.5s ease-in-out;
         }
         .header-buttons a {
             display: inline-block;
@@ -65,6 +80,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            animation: fadeIn 1.5s ease-in-out;
         }
         nav a {
             text-decoration: none;
@@ -88,6 +104,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
         }
         .projects-container, .skills-container {
             display: flex;
@@ -143,6 +160,7 @@
             background: rgba(0, 0, 0, 0.8);
             color: #e8e8e8;
             font-size: 0.9em;
+            animation: fadeIn 1.5s ease-in-out;
         }
     </style>
 </head>
@@ -234,3 +252,4 @@
     </footer>
 </body>
 </html>
+
