@@ -9,15 +9,28 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('https://source.unsplash.com/1920x1080/?AI,robot') no-repeat center center fixed;
+            background: url('https://source.unsplash.com/1920x1080/?technology,data') no-repeat center center fixed;
             background-size: cover;
             color: #333;
         }
         header {
-            background-color: rgba(76, 175, 80, 0.9);
+            background: url('https://source.unsplash.com/1920x500/?artificial-intelligence,professional') no-repeat center center;
+            background-size: cover;
             color: white;
-            padding: 1em 0;
+            padding: 2em 0;
             text-align: center;
+            position: relative;
+        }
+        header h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5em;
+        }
+        header h1::before {
+            content: url('https://cdn-icons-png.flaticon.com/512/2917/2917242.png');
+            width: 50px;
+            height: 50px;
         }
         nav {
             display: flex;
@@ -41,6 +54,33 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin-bottom: 2em;
+        }
+        .projects {
+            display: flex;
+            overflow-x: auto;
+            gap: 1em;
+            padding: 1em;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+        }
+        .project-card {
+            min-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+        .project-card img {
+            width: 100%;
+            height: auto;
+        }
+        .project-card a {
+            display: block;
+            padding: 1em;
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
         }
         footer {
             text-align: center;
@@ -74,12 +114,20 @@
 
     <section id="projects" class="section">
         <h2>Projects</h2>
-        <ul>
-            <li><strong>Sales Forecasting for Retail Stores:</strong> Building predictive models to enhance demand planning and inventory management.</li>
-            <li><strong>Textbook Summarization Tool:</strong> Summarizing academic content using NLP techniques.</li>
-            <li><strong>Realtime Chatbot Project:</strong> Developing a chatbot for efficient user interaction using advanced NLP models.</li>
-        </ul>
-        <p>Explore more on my <a href="https://github.com/RaviKunapareddy?tab=repositories" target="_blank">GitHub</a>.</p>
+        <div class="projects">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Sales Forecasting">
+                <a href="#">Sales Forecasting for Retail Stores</a>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Textbook Summarization">
+                <a href="#">Textbook Summarization Tool</a>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/300x200" alt="Realtime Chatbot">
+                <a href="#">Realtime Chatbot Project</a>
+            </div>
+        </div>
     </section>
 
     <section id="skills" class="section">
@@ -97,7 +145,7 @@
         <h2>Contact</h2>
         <p>Let's connect!</p>
         <ul>
-            <li><strong>Email:</strong> ravitejak99@gmail.com</li>
+            <li><strong>Email:</strong> raviteja.kunapareddy09@gmail.com</li>
             <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ravitejak99/" target="_blank">linkedin.com/in/ravitejak99</a></li>
             <li><strong>GitHub:</strong> <a href="https://github.com/RaviKunapareddy" target="_blank">github.com/RaviKunapareddy</a></li>
         </ul>
