@@ -11,37 +11,74 @@
             padding: 0;
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1551281306-0d52288970ad?q=80&w=2624&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
             background-size: cover;
-            color: #e8e8e8; /* Light gray */
+            color: #e8e8e8;
         }
         header {
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
-            color: #e8e8e8;
-            padding: 2em 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             text-align: center;
-            position: relative;
-            font-weight: 700;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            background-blend-mode: overlay;
         }
         header h1 {
-            font-size: 2.5em;
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
         header p {
-            font-size: 1.2em;
+            font-size: 1.5em;
+            margin-top: 0.5em;
             font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .header-buttons {
+            margin-top: 2em;
+        }
+        .header-buttons a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 0.8em 1.5em;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .header-buttons a:hover {
+            background: #4CAF50;
+            color: #fff;
+            border-color: #4CAF50;
         }
         nav {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 1.5em;
-            margin: 1em 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1em;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav a {
             text-decoration: none;
-            color: #e8e8e8;
-            font-weight: 500;
-            font-size: 1.1em;
+            color: #fff;
+            font-size: 1em;
+            font-weight: bold;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            padding: 0.5em 1em;
+            transition: all 0.3s;
         }
         nav a:hover {
-            color: #f5f5f5;
+            background: #4CAF50;
+            border-color: #4CAF50;
         }
         .section {
             padding: 3em;
@@ -52,6 +89,54 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
+        .projects-container, .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5em;
+        }
+        .project-card, .skill-card {
+            width: 300px;
+            background: #333;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #e8e8e8;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover, .skill-card:hover {
+            transform: translateY(-10px);
+        }
+        .project-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1em;
+        }
+        .skill-card h3 {
+            margin-bottom: 0.5em;
+        }
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+        }
+        .contact-container a {
+            text-decoration: none;
+            color: #e8e8e8;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .contact-container img {
+            width: 24px;
+            height: 24px;
+        }
         footer {
             text-align: center;
             padding: 1em 0;
@@ -59,43 +144,16 @@
             color: #e8e8e8;
             font-size: 0.9em;
         }
-        .projects {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5em;
-        }
-        .project-card {
-            width: 300px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            background: #2c2c2c;
-            color: #e8e8e8;
-        }
-        .project-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .project-card a {
-            display: block;
-            padding: 1em;
-            text-decoration: none;
-            color: #e8e8e8;
-            font-weight: bold;
-            text-align: center;
-        }
-        .project-card a:hover {
-            color: #f5f5f5;
-        }
     </style>
 </head>
 <body>
     <header>
         <h1>Raviteja Kunapareddy</h1>
         <p>Aspiring Machine Learning Engineer | Master's in Management Information Systems</p>
+        <div class="header-buttons">
+            <a href="#about">Learn More</a>
+            <a href="#contact">Contact Me</a>
+        </div>
     </header>
 
     <nav>
@@ -105,33 +163,70 @@
         <a href="#contact">Contact</a>
     </nav>
 
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture">
+            <p>Hello! I'm Raviteja Kunapareddy, a third-semester Master's student in Management Information Systems at Northern Illinois University. With a strong background in programming and machine learning, I am passionate about solving real-world problems with AI and data-driven solutions.</p>
+        </div>
+    </section>
+
     <section id="projects" class="section">
         <h2>Projects</h2>
-        <div class="projects">
+        <div class="projects-container">
             <div class="project-card">
                 <img src="https://images.unsplash.com/photo-1593642634443-44adaa06623a" alt="Sales Forecasting">
-                <a href="#">Sales Forecasting for Retail Stores</a>
+                <h3>Sales Forecasting</h3>
+                <p>Predicting sales trends for retail stores using advanced machine learning techniques.</p>
             </div>
             <div class="project-card">
                 <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8" alt="Textbook Summarization">
-                <a href="#">Textbook Summarization Tool</a>
+                <h3>Textbook Summarization</h3>
+                <p>Generating concise summaries of textbooks with natural language processing.</p>
             </div>
             <div class="project-card">
                 <img src="https://images.unsplash.com/photo-1518933165971-611dbc9c412d" alt="Realtime Chatbot">
-                <a href="#">Realtime Chatbot Project</a>
+                <h3>Realtime Chatbot</h3>
+                <p>Interactive chatbot for real-time conversations powered by AI and machine learning.</p>
             </div>
         </div>
     </section>
 
     <section id="skills" class="section">
         <h2>Skills</h2>
-        <ul style="list-style-type: none; padding: 0;">
-            <li><strong>Programming:</strong> Python, R, SQL</li>
-            <li><strong>Machine Learning:</strong> Scikit-Learn, TensorFlow, PyTorch</li>
-            <li><strong>Data Analysis:</strong> Numpy, Pandas, Matplotlib</li>
-            <li><strong>Cloud Platforms:</strong> AWS (S3, SageMaker)</li>
-            <li><strong>Tools:</strong> Git, MS Excel</li>
-        </ul>
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3>Python</h3>
+                <p>Proficient in Python for data analysis, web development, and automation.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Machine Learning</h3>
+                <p>Experienced in TensorFlow, Scikit-Learn, and PyTorch for building models.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Data Visualization</h3>
+                <p>Skilled in creating dashboards with Power BI and Matplotlib.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Cloud Platforms</h3>
+                <p>Knowledgeable in AWS services like S3, Glue, and SageMaker.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+            <a href="mailto:ravitejakunapareddy09@gmail.com">
+                <img src="https://img.icons8.com/color/48/000000/gmail.png" alt="Gmail"> ravitejakunapareddy09@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/ravi-kunapareddy/" target="_blank">
+                <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn"> LinkedIn Profile
+            </a>
+            <a href="https://github.com/RaviKunapareddy" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub"> GitHub Profile
+            </a>
+        </div>
     </section>
 
     <footer>
