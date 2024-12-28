@@ -16,13 +16,19 @@
             100% { transform: scale(1); }
         }
 
+        @keyframes navHover {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
         body {
             font-family: 'Lato', sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1551281306-0d52288970ad?q=80&w=2624&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
             background-size: cover;
-            color: #e8e8e8;
+            color: #d3d3d3;
         }
         header {
             display: flex;
@@ -84,17 +90,19 @@
         }
         nav a {
             text-decoration: none;
-            color: #fff;
-            font-size: 1em;
+            color: #d3d3d3;
+            font-size: 1.1em;
             font-weight: bold;
             border: 2px solid transparent;
             border-radius: 50px;
-            padding: 0.5em 1em;
-            transition: all 0.3s;
+            padding: 0.6em 1.2em;
+            transition: transform 0.3s ease, background 0.3s ease;
         }
         nav a:hover {
-            background: #4CAF50;
-            border-color: #4CAF50;
+            background: #b0b0b0;
+            color: #fff;
+            transform: scale(1.1);
+            animation: navHover 0.5s ease-in-out;
         }
         .section {
             padding: 3em;
@@ -119,24 +127,25 @@
             border-radius: 50%;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
-        .projects-container, .skills-container {
+        .projects-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 1.5em;
         }
-        .project-card, .skill-card {
-            width: 300px;
+        .project-card {
+             width: 300px;
             background: #333;
             padding: 1em;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             color: #e8e8e8;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .project-card:hover, .skill-card:hover {
+        .project-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
         }
         .project-card img {
             width: 100%;
@@ -145,14 +154,84 @@
             border-radius: 10px;
             margin-bottom: 1em;
         }
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            margin-top: 1em;
+        }
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .grid-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .grid-item:hover img {
+            transform: scale(1.1);
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 1em;
+            text-align: center;
+        }
+        .grid-item:hover .overlay {
+            opacity: 1;
+        }
+        .overlay h3 {
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+        }
+        .overlay p {
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5em;
+        }
+        .skill-card {
+             width: 300px;
+            background: #333;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #e8e8e8;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+        }
         .skill-card h3 {
-            margin-bottom: 0.2em;
-            font-size: 1.1em;
-            font-weight: bold;
+            margin-bottom: 0.5em;
+            font-size: 1.2em;
         }
         .skill-card p {
-            font-size: 0.95em;
-            line-height: 1.4;
+            font-size: 1em;
+            line-height: 1.5;
         }
         .contact-container {
             display: flex;
@@ -162,7 +241,7 @@
         }
         .contact-container a {
             text-decoration: none;
-            color: #e8e8e8;
+            color: #d3d3d3;
             display: flex;
             align-items: center;
             gap: 0.5em;
@@ -177,7 +256,7 @@
             text-align: center;
             padding: 1em 0;
             background: rgba(0, 0, 0, 0.8);
-            color: #e8e8e8;
+            color: #d3d3d3;
             font-size: 0.9em;
             animation: fadeIn 1.5s ease-in-out;
         }
@@ -212,21 +291,58 @@
         <h2>Projects</h2>
         <div class="projects-container">
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1593642634443-44adaa06623a" alt="Sales Forecasting">
-                <h3>Sales Forecasting</h3>
+                <a href="https://github.com/RaviKunapareddy/AI-Driven-Sales-Forecasting-for-Academic-Research" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1593642634443-44adaa06623a" alt="Sales Forecasting">
+                    <h3>Sales Forecasting</h3>
+                </a>
                 <p>Predicting sales trends for retail stores using advanced machine learning techniques.</p>
             </div>
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8" alt="Textbook Summarization">
-                <h3>Textbook Summarization</h3>
+                <a href="https://github.com/RaviKunapareddy/AI-Based-Textbook-Summarization-Tool" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8" alt="Textbook Summarization">
+                    <h3>Textbook Summarization</h3>
+                </a>
                 <p>Generating concise summaries of textbooks with natural language processing.</p>
             </div>
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1518933165971-611dbc9c412d" alt="Realtime Chatbot">
-                <h3>Realtime Chatbot</h3>
+                <a href="https://github.com/RaviKunapareddy/AI-chatbot" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1518933165971-611dbc9c412d" alt="Realtime Chatbot">
+                    <h3>Realtime Chatbot</h3>
+                </a>
                 <p>Interactive chatbot for real-time conversations powered by AI and machine learning.</p>
             </div>
         </div>
+        <h3 style="margin-top: 2em;">More Projects</h3>
+        <div class="grid-gallery">
+            <div class="grid-item">
+                <a href=“https://github.com/RaviKunapareddy/Image-Classifier” target="_blank">
+                    <img src="https://cdn.prod.website-files.com/62a9e41d28a7ab25849bce9c/6310c1108e50b96e5a2b33ee_Unsupervised-Learning-in-Image-Classification.jpg" alt="Image Classification">
+                </a>
+                <div class="overlay">
+                    <h3>Image Classification</h3>
+                    <p>Built a deep learning model to classify images into categories using TensorFlow and Keras.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <a href="https://github.com/RaviKunapareddy/handwritten-digit-recognition" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1517842645767-c639042777db" alt="Handwritten Digit Recognition">
+                </a>
+                <div class="overlay">
+                    <h3>Handwritten Digit Recognition</h3>
+                    <p>Developed a neural network achieving 98% accuracy in handwritten digit recognition.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <a href="https://github.com/RaviKunapareddy/Movie-Recommendation-System" target="_blank">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Movie Recommendation System">
+                </a>
+                <div class="overlay">
+                    <h3>Movie Recommendation System</h3>
+                    <p>Created a collaborative filtering-based system to recommend movies.</p>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <section id="skills" class="section">
@@ -234,7 +350,7 @@
         <div class="skills-container">
             <div class="skill-card">
                 <h3>Python</h3>
-                <p>Expertise in Python for building AI and ML algorithms, including Data structures and algorithms.</p>
+                <p>Expertise in Python for building AI and ML algorithms, including NumPy, Pandas, and Scikit-Learn.</p>
             </div>
             <div class="skill-card">
                 <h3>Machine Learning Frameworks</h3>
